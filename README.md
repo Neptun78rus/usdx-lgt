@@ -5,7 +5,7 @@ This microcontroller is almost completely compatible with the ATMEGA328P in term
 2) 12-bit ADC.
 3) uDSC computing accelerator with access to the SRAM area.
 4) and many other goodies.
-The only downside of this MCU is the lack of EEPROM, but for ATMEGA this is also a known problem, because the built-in EEPROM has a limited number of rewrites, only 100,000. And the uSDX program rewrites bytes with each frequency change. In my version, it was decided to take the EEPROM out as a separate chip.
+The only downside of this MCU is the lack of EEPROM, but for ATMEGA this is also a known problem, because the built-in EEPROM has a limited number of rewrites, only 100,000. And the uSDX program rewrites bytes with each frequency change. In my version, it was decided to take the EEPROM out as a separate chip. So, we simply hang the EEPROM ST24C08 chip on the I2C bus, we had one at hand from an old CRT display. Warning!!! This may not work with similar EEPROM chips, since the logic of working with them may be different, and will require changes in the code.
 ![ST24C08 w uSDX](https://github.com/user-attachments/assets/d678972e-f4b9-4234-818c-53d1562d2970)
 
 
