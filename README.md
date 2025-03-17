@@ -6,6 +6,9 @@ This microcontroller is almost completely compatible with the ATMEGA328P in term
 3) uDSC computing accelerator with access to the SRAM area.
 4) and many other goodies.
 The only downside of this MCU is the lack of EEPROM, but for ATMEGA this is also a known problem, because the built-in EEPROM has a limited number of rewrites, only 100,000. And the uSDX program rewrites bytes with each frequency change. In my version, it was decided to take the EEPROM out as a separate chip.
+![ST24C08 w uSDX](https://github.com/user-attachments/assets/d678972e-f4b9-4234-818c-53d1562d2970)
+
+
 
 Во время кризиса полупроводников, когда цены на обычную Ардуинку взлетели в 5 раз, мое внимание привлек китайский клон LGT8F328P
 Этот микроконтроллер практически полностью совместим по системе команд с ATMEGA328P и имеет существенные приимущества:
