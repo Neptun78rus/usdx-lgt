@@ -13,8 +13,8 @@
 
 #define DIAG             1   // Hardware diagnostics on startup (only disable when your rig is working)
 #define KEYER            1   // CW keyer
-#define CAT              1   // CAT-interface
-#define F_XTAL    27000030   // 27MHz SI5351 crystal
+//#define CAT              1   // CAT-interface
+#define F_XTAL    27005634   // 27MHz SI5351 crystal
 //#define F_XTAL  25004000   // 25MHz SI5351 crystal  (enable for WB2CBA-uSDX, SI5351 break-out board or uSDXDuO)
 //#define F_XTAL  25000000   // 25MHz SI5351 crystal  (enable for 25MHz TCXO)
 //#define SWAP_ROTARY    1   // Swap rotary direction (enable for WB2CBA-uSDX)
@@ -22,7 +22,7 @@
 //#define OLED_SSD1306   1   // OLED display (SSD1306 128x32 or 128x64), connect SDA (PD2), SCL (PD3)
 //#define OLED_SH1106    1   // OLED display (SH1106 1.3" inch display), connect SDA (PD2), SCL (PD3), NOTE that this display is pretty slow
 //#define LCD_I2C        1   // LCD with I2C (PCF8574 module          ), connect SDA (PD2), SCL (PD3), NOTE that this display is pretty slow
-#define LPF_SWITCHING_DL2MAN_USDX_REV3           1   // Enable 8-band filter bank switching:     latching relays wired to a TCA/PCA9555 GPIO extender on the PC4/PC5 I2C bus; relays are using IO0.0 as common (ground), IO1.0..7 used by the individual latches K0-7 switching respectively LPFs for 10m, 15m, 17m, 20m, 30m, 40m, 60m, 80m
+//#define LPF_SWITCHING_DL2MAN_USDX_REV3           1   // Enable 8-band filter bank switching:     latching relays wired to a TCA/PCA9555 GPIO extender on the PC4/PC5 I2C bus; relays are using IO0.0 as common (ground), IO1.0..7 used by the individual latches K0-7 switching respectively LPFs for 10m, 15m, 17m, 20m, 30m, 40m, 60m, 80m
 //#define LPF_SWITCHING_DL2MAN_USDX_REV3_NOLATCH 1   // Enable 8-band filter bank switching: non-latching relays wired to a TCA/PCA9555 GPIO extender on the PC4/PC5 I2C bus; relays are using IO0.0 as common (ground), IO1.0..7 used by the individual latches K0-7 switching respectively LPFs for 10m, 15m, 17m, 20m, 30m, 40m, 60m, 80m. Enable this if you are using 8-band non-latching version for the relays, the radio will draw extra 15mA current but will work ity any relay (Tnx OH2UDS/TA7W Baris)
 //#define LPF_SWITCHING_DL2MAN_USDX_REV2         1   // Enable 5-band filter bank switching:     latching relays wired to a TCA/PCA9555 GPIO extender on the PC4/PC5 I2C bus; relays are using IO0.1 as common (ground), IO0.3, IO0.5, IO0.7, IO1.1, IO1.3 used by the individual latches K1-5 switching respectively LPFs for 20m, 30m, 40m, 60m, 80m
 //#define LPF_SWITCHING_DL2MAN_USDX_REV2_BETA    1   // Enable 5-band filter bank switching:     latching relays wired to a PCA9539PW   GPIO extender on the PC4/PC5 I2C bus; relays are using IO0.1 as common (ground), IO0.3, IO0.5, IO0.7, IO1.1, IO1.3 used by the individual latches K1-5 switching respectively LPFs for 20m, 30m, 40m, 60m, 80m
@@ -37,7 +37,7 @@
 //#define CAT_EXT        1   // Extended CAT support: remote button and screen control commands over CAT
 //#define CAT_STREAMING  1   // Extended CAT support: audio streaming over CAT, once enabled and triggered with CAT cmd, samplerate 7812Hz, 8-bit unsigned audio is sent over UART. The ";" is omited in the data-stream, and only sent to indicate the beginning and end of a CAT cmd.
 #define CW_DECODER       1   // CW decoder
-#define TX_ENABLE        1   // Disable this for RX only (no transmit), e.g. to support uSDX for kids idea: https://groups.io/g/ucx/topic/81030243#6276
+//#define TX_ENABLE        1   // Disable this for RX only (no transmit), e.g. to support uSDX for kids idea: https://groups.io/g/ucx/topic/81030243#6276
 #define KEY_CLICK        1   // Reduce key clicks by envelope shaping
 #define SEMI_QSK         1   // Just after keying the transmitter, keeps the RX muted for a short amount of time in the anticipation for continued keying
 #define RIT_ENABLE       1   // Receive-In-Transit alternates the receiving frequency with an user-defined offset to compensate for any necessary tuning needed on receive
@@ -53,22 +53,22 @@
 #define CURRENT_SHUNT_CALIBRATION_CONSTANT 4010 // default calibration constant for my INA219 board (same as Adafruit board but without the logo). This should be 4096 for a 0.1ohm resistor and the chosen configuration, so either the resistor is a bit off, or my meter is off --sq5bpf
 
 //#define ONEBUTTON      1   // Use single (encoder) button to control full the rig; optionally use L/R buttons to completely replace rotory encoder function
-//#define DEBUG          1   // for development purposes only (adds debugging features such as CPU, sample-rate measurement, additional parameters)
+#define DEBUG          1   // for development purposes only (adds debugging features such as CPU, sample-rate measurement, additional parameters)
 //#define TESTBENCH      1   // Tests RX chain by injection of sine wave, measurements results are sent over serial
 //#define CW_FREQS_QRP   1   // Defaults to CW QRP   frequencies when changing bands
 //#define CW_FREQS_FISTS 1   // Defaults to CW FISTS frequencies when changing bands
 
-#define CW_MESSAGE       1   // Transmits pre-defined CW messages on-demand (left-click menu item 4.2)
+//#define CW_MESSAGE       1   // Transmits pre-defined CW messages on-demand (left-click menu item 4.2)
 //#define CW_MESSAGE_EXT 1   // Additional CW messages
 
 //put your call and name here, it will be used to generate the predefined messages
-#define MYCALL "PE1NNN"
-#define MYNAME "GUIDO"
+#define MYCALL "AR1RA"
+#define MYNAME "SERGE"
 
 // predefined CW messages
 #define CW_MSG1 "CQ " MYCALL " +"
 // CW_MSG2-5 are used only when CW_MESSAGE_EXT is set
-#define CW_MSG2 "CQ CQ DE PE1NNN PE1NNN +"
+#define CW_MSG2 "CQ CQ DE RA1AR RA1AR +"
 #define CW_MSG3 "GE TKS 5NN 5NN NAME IS " MYNAME " " MYNAME " HW?"
 #define CW_MSG4 "FB RPTR TX 5W 5W ANT INV V 73 CUAGN"
 #define CW_MSG5 "73 TU E E"
@@ -82,3 +82,4 @@
 //#define F_XTAL  20000000   // Enable this for uSDXDuO, 20MHz SI5351 crystal
 //#define TX_CLK0_CLK1   1   // Enable this for uSDXDuO, i.e. when PA is driven by CLK0, CLK1 (not CLK2); NTX pin may be used for enabling the TX path (this is like RX pin, except that RX may also be used as attenuator)
 //#define F_CLK2  12000000   // Enables a fixed CLK2 clock output of choice (only applicable when TX_CLK0_CLK1 is enabled), e.g. for up-converter or to clock UART USB device
+#define EXTERNAL_EEPROM_ST24C08 // Enable to use external EEPROM IC
