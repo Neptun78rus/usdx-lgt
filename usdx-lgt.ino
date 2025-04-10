@@ -1196,7 +1196,7 @@ public:
 #endif
 #endif
   #define I2C_SDA_DELAY_1 3 // for slow device at 32MHz Clock
-  #define I2C_SDA_DELAY_2 2 //
+  #define I2C_SDA_DELAY_2 3 //
   #define I2C_DDR DDRC     // Pins for the I2C bit banging
   #define I2C_PIN PINC
   #define I2C_PORT PORTC
@@ -3388,8 +3388,13 @@ void timer1_start(uint32_t fs)
   TCCR1B = 0;
   TCCR1A |= (1 << COM1A1) | (1 << COM1B1) | (1 << WGM11); // Clear OC1A/OC1B on compare match, set OC1A/OC1B at BOTTOM (non-inverting mode)
   TCCR1B |= (1 << CS10) | (1 << WGM13) | (1 << WGM12); // Mode 14 - Fast PWM;  CS10: clkI/O/1 (No prescaling)
+  #if defined (__LGT8FX8P__)
+  uint16_t icr = ( F_CPU / fs);
+  ICR1 = icr;
+  #else 
   ICR1H = 0x00;
   ICR1L = min(255, F_CPU / fs);  // PWM value range (fs>78431):  Fpwm = F_CPU / [Prescaler * (1 + TOP)]
+  #endif
   //TCCR1A |= (1 << COM1A1) | (1 << COM1B1) | (1 << WGM10); // Clear OC1A/OC1B on compare match, set OC1A/OC1B at BOTTOM (non-inverting mode)
   //TCCR1B |= (1 << CS10) | (1 << WGM12); // Mode 5 - Fast PWM, 8-bit;  CS10: clkI/O/1 (No prescaling)
   OCR1AH = 0x00;
